@@ -18,44 +18,51 @@ namespace StarWars.Core.Core
     {
         public async Task<string> SendPromptAsync(string customPrompt)
         {
-            var apiKey = "muGWQYwn2hLauXg3bIJAUjDr5THfL5r60i9f4KPQMvqh8QTyxRpDJIbjzD9c";
+            var apiKey = "YLSfzsWAEVGoyRYN7XV41Z1OBR2aEJVj4B5byIEjg3SDbOR6oYMxtdCOnWJa";
 
-            var client = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Post, "https://stablediffusionapi.com/api/v3/dreambooth");
-
-            // JSON veri oluşturma
-            var data = new
+            try
             {
-                key = apiKey,
-                model_id = "midjourney",
-                prompt = customPrompt,
-                negative_prompt = "",
-                width = "512",
-                height = "512",
-                samples = "1",
-                num_inference_steps = "30",
-                seed = "",
-                guidance_scale = 7.5,
-                webhook = "",
-                track_id = ""
-            };
+                var client = new HttpClient();
+                var request = new HttpRequestMessage(HttpMethod.Post, "https://stablediffusionapi.com/api/v3/dreambooth");
 
-            // JSON içeriğini hazırlama
-            var jsonContent = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+                // Setting the JSON data
+                var data = new
+                {
+                    key = apiKey,
+                    model_id = "midjourney",
+                    prompt = customPrompt,
+                    negative_prompt = "",
+                    width = "512",
+                    height = "512",
+                    samples = "1",
+                    num_inference_steps = "30",
+                    seed = "",
+                    guidance_scale = 7.5,
+                    webhook = "",
+                    track_id = ""
+                };
 
-            // İstek ayarlarını güncelleme
-            request.Content = jsonContent;
+                // JSON serializing
+                var jsonContent = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
 
-            // İsteği gönderme ve yanıtı alma
-            var response = await client.SendAsync(request);
-            response.EnsureSuccessStatusCode();
+                // Adding JSON prompt to Request
+                request.Content = jsonContent;
 
-            // Yanıtı okuma
-            var responseContent = await response.Content.ReadAsStringAsync();
-            var responseObject = JsonConvert.DeserializeObject<dynamic>(responseContent);
-            var photoUrl = responseObject.output[0].Value;
+                // Requesting then getting Respond
+                var response = await client.SendAsync(request);
+                response.EnsureSuccessStatusCode();
 
-            return photoUrl;
+                // Reading the Response and getting Photo URL from it
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseObject = JsonConvert.DeserializeObject<dynamic>(responseContent);
+                var photoUrl = responseObject.output[0].Value;
+
+                return photoUrl;
+            }
+            catch (Exception ex)
+            {                
+                return "https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg";
+            }
         }
     }
 }

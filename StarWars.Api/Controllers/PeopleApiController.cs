@@ -59,7 +59,7 @@ namespace StarWars.Api.Controllers
         {
             EntityResults<People> allPeople = swapiCore.GetAllPeople();
 
-            List<People> peopleByGender = allPeople.results.Where(g=> g.gender == gender.ToString()).ToList();
+            List<People> peopleByGender = allPeople.results.Where(g => g.gender == gender.ToString()).ToList();
 
             return Ok(peopleByGender);
         }
