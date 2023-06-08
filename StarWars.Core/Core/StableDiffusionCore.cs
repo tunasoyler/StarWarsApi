@@ -18,7 +18,7 @@ namespace StarWars.Core.Core
     {
         public async Task<string> SendPromptAsync(string customPrompt)
         {
-            var apiKey = "YLSfzsWAEVGoyRYN7XV41Z1OBR2aEJVj4B5byIEjg3SDbOR6oYMxtdCOnWJa";
+            var apiKey = "YLSfzsWAEVGoyRYN7XV41Z1OBR2aEJVj4B5byIEjg3SDbOR6oYMxtdCOnWJa//";
 
             try
             {

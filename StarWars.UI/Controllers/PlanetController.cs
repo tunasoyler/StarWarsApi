@@ -9,7 +9,7 @@ using System.Net.Http.Json;
 
 namespace StarWars.UI.Controllers
 {
-    public class PlanetsController : Controller
+    public class PlanetController : Controller
     {
         string baseAddress = "https://localhost:44311/api/";
 
@@ -35,9 +35,27 @@ namespace StarWars.UI.Controllers
                 return View();
             }
         }
-        public async Task<IActionResult> Get(int id)
+        [Route("planet/detail/{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
-            return View();
+            Planet planet = new Planet();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseAddress);
+                var response = await client.GetAsync($"PlanetApi/Detail?id={id}");
+
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var readData = await response.Content.ReadFromJsonAsync<Planet>();
+
+                    planet = readData;
+
+                    return View(planet);
+                }
+                return View();
+            }
         }
 
 

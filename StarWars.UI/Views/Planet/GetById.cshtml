@@ -1,0 +1,72 @@
+﻿@model StarWars.Core.Entities.Planet
+
+@{
+    ViewData["Title"] = "GetPlanetById";
+}
+
+<h1>Planet Details:</h1>
+
+<div>
+    <h4>Planet</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Name:
+        </dt>
+        <dd class="col-sm-10" style="text-transform: capitalize;">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class="col-sm-2">
+            Climate:
+        </dt>
+        <dd class="col-sm-10" style="text-transform: capitalize;">
+            @Html.DisplayFor(model => model.climate)
+        </dd>
+        <dt class="col-sm-2">
+            Terrain:
+        </dt>
+        <dd class="col-sm-10 " style="text-transform: capitalize;">
+            @Html.DisplayFor(model => model.terrain)
+        </dd>
+        <dt class="col-sm-2">
+            Diameter:
+        </dt>
+        <dd class="col-sm-10" style="text-transform: capitalize;">
+            @Html.DisplayFor(model => model.diameter)
+        </dd>
+        <dt class="col-sm-2">
+            Rotation Period:
+        </dt>
+        <dd class="col-sm-10" style="text-transform: capitalize;">
+            @Html.DisplayFor(model => model.rotation_period)
+        </dd>
+        <dt class="col-sm-2">
+            Orbital Period:
+        </dt>
+        <dd class="col-sm-10" style="text-transform: capitalize;">
+            @Html.DisplayFor(model => model.orbital_period)
+        </dd>
+        <dt class="col-sm-2">
+            Gravity:
+        </dt>
+        <dd class="col-sm-10" style="text-transform: capitalize;">
+            @Html.DisplayFor(model => model.gravity)
+        </dd>
+        <dt class="col-sm-2">
+            Surface Water:
+        </dt>
+        <dd class="col-sm-10" style="text-transform: capitalize;">
+            @Html.DisplayFor(model => model.surface_water)
+        </dd>
+        <dt class="col-sm-2">
+            Population:
+        </dt>
+        <dd class="col-sm-10" style="text-transform: capitalize;">
+            @Html.DisplayFor(model => model.population)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -4,78 +4,71 @@
     ViewData["Title"] = "GetById";
 }
 
-<h1>Details:</h1>
 
-<div>
-    <h4>People</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            Name:
-        </dt>
-        <dd class="col-sm-10">
+
+<div class="row">
+    <div class="col-md-3">
+        <img src="@Model.photo" alt="Avatar" style="max-width: 100%;">
+    </div>
+    <div class="col-md-9">
+
+        <strong class="" style="text-transform: capitalize;">
             @Html.DisplayFor(model => model.name)
-        </dd>
-        <dt class="col-sm-2">
-            Gender:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.gender)
-        </dd>
-        <dt class="col-sm-2">
-            Height:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.height)
-        </dd>
-        <dt class="col-sm-2">
-            Hair Color:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.hair_color)
-        </dd>
-        <dt class="col-sm-2">
-            Skin Color:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.skin_color)
-        </dd>
-
-        <dt class="col-sm-2">
-            Birth Year:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.birth_year)
-        </dd>
-        <dt class="col-sm-2">
-            Home World:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.homeworld)
-        </dd>
-        <dt class="col-sm-2">
-            Eye Color:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.eye_color)
-        </dd>
-        <dt class="col-sm-2">
-            Mass:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.mass)
-        </dd>
-        <dt class="col-sm-2">
-            Photo:
-        </dt>
-        <dd class="col-sm-10">
-            @if (Model.photo != null)
-            {
-                <img src="@Model.photo" alt="" />
-            }
-        </dd>
-    </dl>
+        </strong>
+        <hr />
+        <dl class="row">            
+            <dt class="col-sm-2">
+                Gender:
+            </dt>
+            <dd class="col-sm-10" style="text-transform: capitalize;">
+                @Html.DisplayFor(model => model.gender)
+            </dd>
+            <dt class="col-sm-2">
+                Height:
+            </dt>
+            <dd class="col-sm-10 " style="text-transform: capitalize;">
+                @Html.DisplayFor(model => model.height)
+            </dd>
+            <dt class="col-sm-2">
+                Hair Color:
+            </dt>
+            <dd class="col-sm-10" style="text-transform: capitalize;">
+                @Html.DisplayFor(model => model.hair_color)
+            </dd>
+            <dt class="col-sm-2">
+                Skin Color:
+            </dt>
+            <dd class="col-sm-10" style="text-transform: capitalize;">
+                @Html.DisplayFor(model => model.skin_color)
+            </dd>
+            <dt class="col-sm-2">
+                Birth Year:
+            </dt>
+            <dd class="col-sm-10" style="text-transform: capitalize;">
+                @Html.DisplayFor(model => model.birth_year)
+            </dd>
+            <dt class="col-sm-2">
+                Home World:
+            </dt>
+            <dd class="col-sm-10" style="text-transform: capitalize;">
+                @Html.DisplayFor(model => model.homeworld)
+            </dd>
+            <dt class="col-sm-2">
+                Eye Color:
+            </dt>
+            <dd class="col-sm-10" style="text-transform: capitalize;">
+                @Html.DisplayFor(model => model.eye_color)
+            </dd>
+            <dt class="col-sm-2">
+                Mass:
+            </dt>
+            <dd class="col-sm-10" style="text-transform: capitalize;">
+                @Html.DisplayFor(model => model.mass)
+            </dd>
+        </dl>
+    </div>
 </div>
+
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
