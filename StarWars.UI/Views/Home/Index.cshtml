@@ -1,7 +1,14 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>StarWars API</h1>
 
+<div class="d-flex justify-content-center">
+    <img style="width:500px" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" alt="Star Wars Logo" class="logo-img">
+</div>
+
+<div class="d-flex justify-content-center">
+    <a class="btn btn-dark btn-lg m-3" asp-area="" asp-controller="People" asp-action="GetAll">People</a>
+    <a class="btn btn-dark  btn-lg m-3" asp-area="" asp-controller="Planet" asp-action="GetAll">Planets</a>
+</div>
