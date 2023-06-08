@@ -71,7 +71,7 @@ namespace StarWars.UI.Controllers
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(baseAddress);
-                var response = await client.GetAsync("PeopleApi/{gender}");
+                var response = await client.GetAsync($"PeopleApi/{gender}");
 
 
                 if (response.IsSuccessStatusCode)
