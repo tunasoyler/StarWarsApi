@@ -30,6 +30,23 @@ namespace StarWars.Api.Controllers
         {
             EntityResults<People> allPeople = swapiCore.GetAllPeople();
 
+
+            for (int i = 0; i < 10; i++)
+            {
+                int k = allPeople.results[i].homeworld.Trim().Length - 2;
+                string l = allPeople.results[i].homeworld.Trim()[k].ToString();
+
+                if (!(Convert.ToInt32(l) ==0))
+                {
+                allPeople.results[i].homeworld =
+                    swapiCore.GetPlanet(l).name;
+                }
+                else
+                {
+                    allPeople.results[i].homeworld = string.Empty;
+                }
+            }
+
             List<People> people = allPeople.results;
 
             return Ok(people);
@@ -39,6 +56,8 @@ namespace StarWars.Api.Controllers
         public async Task<IActionResult> GetAsync(string id)
         {
             People people = swapiCore.GetPeople(id);
+            Planet planet = swapiCore.GetPlanet(id);
+            people.homeworld = planet.name;
 
             var prompt = $"Name: {people.name}\n" +
              $"Height: {people.height}\n" +

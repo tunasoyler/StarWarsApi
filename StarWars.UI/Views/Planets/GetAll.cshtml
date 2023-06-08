@@ -1,12 +1,11 @@
-﻿@model IEnumerable<StarWars.Core.Entities.People>
-
+﻿@model IEnumerable<StarWars.Core.Entities.Planet>
 @{
     ViewData["Title"] = "GetAll";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int i = 0;
 }
 
-<h1>People Of Star Wars</h1>
+<h1>Planets Of Star Wars</h1>
 
 <table class="table">
     <thead>
@@ -15,14 +14,11 @@
                 Name:
             </th>
             <th>
-                Gender:
+                Population:
             </th>
-
             <th>
-                Home World:
+                Climate:
             </th>
-
-
             <th></th>
         </tr>
     </thead>
@@ -35,14 +31,11 @@
                     @Html.DisplayFor(modelItem => item.name)
                 </td>
                 <td class="text-uppercase">
-                    @Html.DisplayFor(modelItem => item.gender)
+                    @Html.DisplayFor(modelItem => item.population)
                 </td>
-
                 <td class="text-uppercase">
-                    @Html.DisplayFor(modelItem => item.homeworld)
+                    @Html.DisplayFor(modelItem => item.climate)
                 </td>
-
-
                 <td>
                     @Html.ActionLink("Details", "Detail", new {id= i})
                 </td>
