@@ -5,16 +5,15 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using StarWars.Core.Entities;
+using StarWars.UI.Models;
 using static System.Reflection.Metadata.BlobBuilder;
 using System.Net.Http.Json;
-using StarWars.Core.Core;
 
 namespace StarWars.UI.Controllers
 {
     public class PeopleController : Controller
     {
-        string baseAddress = "https://localhost:44311/api/";
+        string baseAddress = "https://localhost:44444/api/";
 
 
         [Route("people")]

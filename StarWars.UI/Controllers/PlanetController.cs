@@ -1,17 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
-using StarWars.Core.Entities;
 using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
+using StarWars.UI.Models;
 
 namespace StarWars.UI.Controllers
 {
     public class PlanetController : Controller
     {
-        string baseAddress = "https://localhost:44311/api/";
+        string baseAddress = "https://localhost:44444/api/";
 
         [Route("planets")]
         public async Task<IActionResult> GetAll()
